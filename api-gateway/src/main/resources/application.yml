@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: authentication-service
+          uri: lb://authentication-service
+          predicates:
+            - Path=/api/auth/**
+        - id: user-profile-service
+          uri: lb://user-profile-service
+          predicates:
+            - Path=/api/profiles/**
+        - id: matching-service
+          uri: lb://matching-service
+          predicates:
+            - Path=/api/matches/**
+        - id: activity-service
+          uri: lb://activity-service
+          predicates:
+            - Path=/api/activities/**
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/api/notifications/**
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

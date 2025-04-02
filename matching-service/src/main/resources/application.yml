@@ -1,0 +1,40 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /api/matches
+
+spring:
+  application:
+    name: matching-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/teamconnect_matching
+    username: teamconnect
+    password: password123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
