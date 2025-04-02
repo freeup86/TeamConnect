@@ -2,7 +2,7 @@ package com.teamconnect.matchingservice.dto
 
 import com.teamconnect.matchingservice.model.MatchStatus
 import java.time.LocalDateTime
-import javax.validation.constraints.NotNull
+import jakarta.validation.constraints.NotNull
 
 data class MatchRequest(
     @field:NotNull(message = "Target user ID is required")

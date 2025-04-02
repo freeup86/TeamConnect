@@ -1,7 +1,7 @@
 package com.teamconnect.authenticationservice.model
 
 import com.teamconnect.common.model.BaseEntity
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "users")

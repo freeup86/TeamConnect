@@ -1,6 +1,6 @@
 package com.teamconnect.userprofileservice.dto
 
-import javax.validation.constraints.NotBlank
+import jakarta.validation.constraints.NotBlank
 
 data class ProfileRequest(
     @field:NotBlank(message = "Department is required")

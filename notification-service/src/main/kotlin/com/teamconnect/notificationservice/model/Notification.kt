@@ -2,7 +2,7 @@ package com.teamconnect.notificationservice.model
 
 import com.teamconnect.common.model.BaseEntity
 import java.time.LocalDateTime
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "notifications")
